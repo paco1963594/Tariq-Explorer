@@ -1,18 +1,30 @@
-<!DOCTYPE html><html lang="ar">
+<!DOCTYPE html>
+<html lang="ar">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fallaowme Travel Booking - حجز الطائرات والفنادق</title>  <!-- ✅ Meta SEO Tags -->  <meta name="description" content="منصة حجز الفنادق والطائرات والقطارات والسيارات مع إمكانية صرف العملة بأسعار محدثة." />
+  <title>Fallaowme Travel Booking - حجز الطائرات والفنادق</title>
+
+  <!-- ✅ Meta SEO Tags -->
+  <meta name="description" content="منصة حجز الفنادق والطائرات والقطارات والسيارات مع إمكانية صرف العملة بأسعار محدثة." />
   <meta name="keywords" content="حجز الفنادق, حجز الطائرات, حجز القطارات, حجز السيارات, صرف العملة, booking, skyscanner, rentalcars, currency exchange, hotel, flight, train, car, réservation hôtel, avion, train, voiture, cambio de moneda, reserva, vuelo, tren, coche" />
   <meta name="author" content="Tariq Smart Travel" />
-  <meta name="robots" content="index, follow" />  <!-- ✅ Redirect Script -->  <script>
+  <meta name="robots" content="index, follow" />
+
+  <!-- ✅ السكريبت الخارجي المُضاف -->
+  <script data-noptimize="1" data-cfasync="false" data-wpfc-render="false">
+    // يمكنك هنا إضافة أي كود خارجي مثل سكربت تتبع أو أدوات خارجية (وضح لي الكود إذا كان لديك سكربت معين)
+  </script>
+
+  <!-- ✅ Redirect Script -->
+  <script>
     function redirectBasedOnQuery() {
       const query = new URLSearchParams(window.location.search).get("q");
       if (!query) return;
 
       const lowerQuery = query.toLowerCase();
 
-      if (lowerQuery.includes("فندق") || lowerQuery.includes("hotel") || lowerQuery.includes("hôtel") || lowerQuery.includes("hotel")) {
+      if (lowerQuery.includes("فندق") || lowerQuery.includes("hotel") || lowerQuery.includes("hôtel")) {
         window.location.href = "https://12go.asia/?z=12574420";
       } else if (lowerQuery.includes("طائرة") || lowerQuery.includes("flight") || lowerQuery.includes("avion") || lowerQuery.includes("vuelo")) {
         window.location.href = "https://12go.asia/?z=12574420";
@@ -31,9 +43,11 @@
       const title = document.querySelector("h1");
       const colors = ["#4285F4", "#EA4335", "#FBBC05", "#34A853"];
       const randomColor = colors[Math.floor(Math.random() * colors.length)];
-      title.style.color = randomColor;
+      if (title) title.style.color = randomColor;
     }, 3000);
-  </script>  <style>
+  </script>
+
+  <style>
     body {
       font-family: 'Tahoma', sans-serif;
       background-color: #000;
@@ -107,21 +121,35 @@
       height: 40px;
       border-radius: 8px;
     }
-  </style></head>
+  </style>
+</head>
+
 <body>
   <div class="icon"></div>
   <h1>Fallaowme Travel Booking - حجز الطائرات والفنادق</h1>
-  <p>احجز رحلتك الآن بكل سهولة: طائرة، فندق، سيارة، قطار، وحتى صرف العملة</p>  <div class="search-box">
+  <p>احجز رحلتك الآن بكل سهولة: طائرة، فندق، سيارة، قطار، وحتى صرف العملة</p>
+
+  <div class="search-box">
     <input type="text" id="searchInput" placeholder="اكتب ما تريد البحث عنه...">
     <button onclick="searchRedirect()">بحث</button>
-  </div>  <script>
+  </div>
+
+  <script>
     function searchRedirect() {
       const query = document.getElementById("searchInput").value;
       window.location.href = `?q=${encodeURIComponent(query)}`;
     }
-  </script><a href="https://12go.asia/?z=12574420" class="button">حجز فندق</a> <a href="https://12go.asia/?z=12574420" class="button">حجز طائرة</a> <a href="https://12go.asia/?z=12574420" class="button">حجز قطار</a> <a href="https://12go.asia/?z=12574420" class="button">حجز سيارة</a> <a href="https://www.xe.com/" class="button">صرف العملة</a>
+  </script>
 
-  <p class="note">أدخل كلمة مثل "فندق" أو "hotel" أو "voiture" أو "avion" ليتم تحويلك تلقائيًا.</p>  <div class="lang-links">
+  <a href="https://12go.asia/?z=12574420" class="button">حجز فندق</a>
+  <a href="https://12go.asia/?z=12574420" class="button">حجز طائرة</a>
+  <a href="https://12go.asia/?z=12574420" class="button">حجز قطار</a>
+  <a href="https://12go.asia/?z=12574420" class="button">حجز سيارة</a>
+  <a href="https://www.xe.com/" class="button">صرف العملة</a>
+
+  <p class="note">أدخل كلمة مثل "فندق" أو "hotel" أو "voiture" أو "avion" ليتم تحويلك تلقائيًا.</p>
+
+  <div class="lang-links">
     <a onclick="window.location.href='?q=hotel'">English</a>
     <a onclick="window.location.href='?q=hôtel'">Français</a>
     <a onclick="window.location.href='?q=hotel'">Español</a>
