@@ -3,152 +3,79 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google-site-verification" content="xxqCk4TjmqZXWrj3v2GNqrJHb6WfuHvRNt7z9OBpHAk" />
-  <title>Fallaowme Travel Search</title>
+  <title>Fallaowme Booking - حجز الطائرات والفنادق</title>
+  
+  <!-- ✅ Meta SEO Tags -->
+  <meta name="description" content="منصة حجز الفنادق والطائرات والقطارات والسيارات مع إمكانية صرف العملة بأسعار محدثة.">
+  <meta name="keywords" content="حجز الفنادق, حجز الطائرات, حجز القطارات, حجز السيارات, صرف العملة, الفندق, الطائرة, القطار, السيارة, booking, skyscanner, rentalcars, currency exchange" />
+  <meta name="author" content="Tariq Smart Travel" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- ✅ Redirect Script -->
+  <script>
+    function redirectBasedOnQuery() {
+      const query = new URLSearchParams(window.location.search).get("q");
+      if (!query) return;
+
+      const lowerQuery = query.toLowerCase();
+
+      if (lowerQuery.includes("فندق") || lowerQuery.includes("hotel")) {
+        window.location.href = "https://www.booking.com/";
+      } else if (lowerQuery.includes("طائرة") || lowerQuery.includes("flight")) {
+        window.location.href = "https://www.skyscanner.net/";
+      } else if (lowerQuery.includes("قطار") || lowerQuery.includes("train")) {
+        window.location.href = "https://www.raileurope.com/";
+      } else if (lowerQuery.includes("سيارة") || lowerQuery.includes("car")) {
+        window.location.href = "https://www.rentalcars.com/";
+      } else if (lowerQuery.includes("صرف") || lowerQuery.includes("عملة") || lowerQuery.includes("currency")) {
+        window.location.href = "https://www.xe.com/";
+      }
+    }
+
+    window.onload = redirectBasedOnQuery;
+  </script>
+
   <style>
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #000;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
+      font-family: 'Tahoma', sans-serif;
+      background-color: #000;
+      color: #fff;
       text-align: center;
+      padding: 50px;
     }
 
-    #icon-tariq {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      width: 60px;
-      height: 60px;
-      background: conic-gradient(#4285f4, #34a853, #fbbc05, #ea4335);
-      color: white;
-      font-weight: bold;
-      font-size: 1.6em;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-    }
-
-    #title {
-      font-size: 2.5em;
+    h1 {
+      font-size: 2em;
       margin-bottom: 20px;
-      transition: color 1s ease-in-out;
     }
 
-    .search-container {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    input[type="text"] {
-      padding: 10px;
-      width: 280px;
-      border-radius: 5px;
-      border: none;
-      font-size: 1em;
-    }
-
-    button {
+    a.button {
+      display: inline-block;
       padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      background: #e67e22;
-      color: white;
-      font-size: 1em;
-      cursor: pointer;
+      margin: 10px;
+      background-color: #f00;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
     }
 
-    .lang-btn {
-      margin: 10px 5px;
-      padding: 5px 10px;
-      border: 1px solid #fff;
-      border-radius: 4px;
-      background: transparent;
-      color: white;
-      cursor: pointer;
-    }
-
-    footer {
-      margin-top: 50px;
-      font-size: 0.9em;
-      color: #999;
+    .note {
+      margin-top: 40px;
+      color: #ccc;
     }
   </style>
 </head>
+
 <body>
-  <div id="icon-tariq">F</div>
-  <h1 id="title">Fallaowme Travel Search</h1>
+  <h1>مرحبًا بك في Fallaowme Booking</h1>
+  <p>احجز رحلتك الآن بكل سهولة: طائرة، فندق، سيارة، قطار، وحتى صرف العملة</p>
 
-  <div class="search-container">
-    <input type="text" id="search-input" placeholder="ابحث هنا..." />
-    <button id="search-button">بحث</button>
-  </div>
+  <a href="https://www.booking.com/" class="button">حجز فندق</a>
+  <a href="https://www.skyscanner.net/" class="button">حجز طائرة</a>
+  <a href="https://www.raileurope.com/" class="button">حجز قطار</a>
+  <a href="https://www.rentalcars.com/" class="button">حجز سيارة</a>
+  <a href="https://www.xe.com/" class="button">صرف العملة</a>
 
-  <div>
-    <button class="lang-btn" data-lang="ar">🇲🇦 عربي</button>
-    <button class="lang-btn" data-lang="fr">🇫🇷 Français</button>
-    <button class="lang-btn" data-lang="en">🇬🇧 English</button>
-    <button class="lang-btn" data-lang="es">🇪🇸 Español</button>
-  </div>
-
-  <footer>
-    &copy; 2025 Fallaowme. All rights reserved.
-  </footer>
-
-  <script>
-    const translations = {
-      ar: { placeholder: "ابحث هنا...", searchBtn: "بحث" },
-      fr: { placeholder: "Recherchez ici...", searchBtn: "Chercher" },
-      en: { placeholder: "Search here...", searchBtn: "Search" },
-      es: { placeholder: "Buscar aquí...", searchBtn: "Buscar" }
-    };
-
-    const keywords = [
-      "حجز الفنادق", "حجز الطائرات", "حجز القطارات", "حجز السيارات", "صرف العملة",
-      "hotel booking", "flight booking", "train booking", "car rental", "currency exchange",
-      "réservation hôtel", "réservation vol", "réservation train", "location voiture", "change de devises",
-      "reserva hotel", "reserva vuelo", "reserva tren", "alquiler coche", "cambio de moneda"
-    ];
-
-    const bookingUrl = "https://12go.asia/?z=12574420";
-
-    document.querySelectorAll(".lang-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const lang = btn.getAttribute("data-lang");
-        document.getElementById("search-input").placeholder = translations[lang].placeholder;
-        document.getElementById("search-button").textContent = translations[lang].searchBtn;
-      });
-    });
-
-    document.getElementById("search-button").addEventListener("click", () => {
-      const query = document.getElementById("search-input").value.trim().toLowerCase();
-      if (!query) return;
-      const matched = keywords.some(keyword => query.includes(keyword.toLowerCase()));
-      const url = matched ? bookingUrl : "https://www.google.com/search?q=" + encodeURIComponent(query);
-      window.open(url, "_blank");
-    });
-
-    document.getElementById("search-input").addEventListener("keydown", function(e) {
-      if (e.key === "Enter") {
-        document.getElementById("search-button").click();
-      }
-    });
-
-    const title = document.getElementById("title");
-    const colors = ["#f1c40f", "#e67e22", "#1abc9c", "#3498db", "#e74c3c"];
-    let colorIndex = 0;
-    setInterval(() => {
-      title.style.color = colors[colorIndex];
-      colorIndex = (colorIndex + 1) % colors.length;
-    }, 3000);
-  </script>
+  <p class="note">أدخل كلمة في شريط البحث مثل "فندق" أو "طائرة" ليتم تحويلك تلقائيًا إلى الرابط المناسب.</p>
 </body>
 </html>
