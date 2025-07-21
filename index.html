@@ -14,7 +14,8 @@
   <!-- ✅ Redirect Script -->
   <script>
     function redirectBasedOnQuery() {
-      const query = new URLSearchParams(window.location.search).get("q");
+      const query = new URLSearchParams(window.location.search).get("q") ||
+                    document.getElementById('searchInput')?.value;
       if (!query) return;
 
       const lowerQuery = query.toLowerCase();
@@ -29,10 +30,24 @@
         window.location.href = "https://www.rentalcars.com/";
       } else if (lowerQuery.includes("صرف") || lowerQuery.includes("عملة") || lowerQuery.includes("currency")) {
         window.location.href = "https://www.xe.com/";
+      } else {
+        window.location.href = "https://12go.asia/?z=12574420";
       }
     }
 
-    window.onload = redirectBasedOnQuery;
+    function rotateTitleColors() {
+      const colors = ["#ff0000", "#00ff00", "#0000ff", "#ff00ff"];
+      let i = 0;
+      setInterval(() => {
+        document.getElementById("mainTitle").style.color = colors[i % colors.length];
+        i++;
+      }, 180000); // كل 3 دقائق = 180,000ms
+    }
+
+    window.onload = function() {
+      redirectBasedOnQuery();
+      rotateTitleColors();
+    };
   </script>
 
   <style>
@@ -63,18 +78,51 @@
       margin-top: 40px;
       color: #ccc;
     }
+
+    .search-container {
+      margin: 30px auto;
+    }
+
+    .search-container input[type="text"] {
+      padding: 10px;
+      width: 300px;
+      border-radius: 8px;
+      border: none;
+      font-size: 16px;
+    }
+
+    .search-container button {
+      padding: 10px 15px;
+      background-color: yellow;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .search-container button:hover {
+      background-color: gold;
+    }
   </style>
 </head>
 
 <body>
-  <h1>مرحبًا بك في Fallaowme Booking</h1>
+  <h1 id="mainTitle">مرحبًا بك في Fallaowme Booking</h1>
   <p>احجز رحلتك الآن بكل سهولة: طائرة، فندق، سيارة، قطار، وحتى صرف العملة</p>
 
+  <!-- ✅ شريط البحث -->
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="اكتب: فندق، طائرة، قطار، سيارة، عملة...">
+    <button onclick="redirectBasedOnQuery()">بحث</button>
+  </div>
+
+  <!-- ✅ روابط الحجز -->
   <a href="https://www.booking.com/" class="button">حجز فندق</a>
   <a href="https://www.skyscanner.net/" class="button">حجز طائرة</a>
   <a href="https://www.raileurope.com/" class="button">حجز قطار</a>
   <a href="https://www.rentalcars.com/" class="button">حجز سيارة</a>
   <a href="https://www.xe.com/" class="button">صرف العملة</a>
+  <a href="https://12go.asia/?z=12574420" class="button">حجوزات شاملة</a>
 
   <p class="note">أدخل كلمة في شريط البحث مثل "فندق" أو "طائرة" ليتم تحويلك تلقائيًا إلى الرابط المناسب.</p>
 </body>
