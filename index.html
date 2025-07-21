@@ -1,172 +1,131 @@
-<!DOCTYPE html>
-<html lang="ar">
+<!DOCTYPE html><html lang="ar">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fallaowme Booking</title>
-
-  <!-- أيقونة فافكون -->
-  <link rel="icon" href="https://www.google.com/favicon.ico" type="image/x-icon" />
-
-  <!-- ✅ Meta SEO -->
-  <meta name="description" content="منصة عالمية لحجز الفنادق والطائرات والقطارات والسيارات وتحويل العملات.">
-  <meta name="keywords" content="حجز الفنادق, حجز الطائرات, حجز القطارات, حجز السيارات, صرف العملة, booking, skyscanner, xe, train, car, hotel, airplane">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fallaowme Travel Booking - حجز الطائرات والفنادق</title>  <!-- ✅ Meta SEO Tags -->  <meta name="description" content="منصة حجز الفنادق والطائرات والقطارات والسيارات مع إمكانية صرف العملة بأسعار محدثة." />
+  <meta name="keywords" content="حجز الفنادق, حجز الطائرات, حجز القطارات, حجز السيارات, صرف العملة, booking, skyscanner, rentalcars, currency exchange, hotel, flight, train, car, réservation hôtel, avion, train, voiture, cambio de moneda, reserva, vuelo, tren, coche" />
   <meta name="author" content="Tariq Smart Travel" />
-  <meta name="robots" content="index, follow" />
-
-  <!-- ✅ تغيير لون العنوان كل 3 ثوانٍ -->
-  <script>
+  <meta name="robots" content="index, follow" />  <!-- ✅ Redirect Script -->  <script>
     function redirectBasedOnQuery() {
-      const query = document.getElementById('searchInput')?.value;
+      const query = new URLSearchParams(window.location.search).get("q");
       if (!query) return;
 
       const lowerQuery = query.toLowerCase();
-      if (lowerQuery.includes("فندق") || lowerQuery.includes("hotel")) {
-        window.location.href = "https://www.booking.com/";
-      } else if (lowerQuery.includes("طائرة") || lowerQuery.includes("flight")) {
-        window.location.href = "https://www.skyscanner.net/";
-      } else if (lowerQuery.includes("قطار") || lowerQuery.includes("train")) {
-        window.location.href = "https://www.raileurope.com/";
-      } else if (lowerQuery.includes("سيارة") || lowerQuery.includes("car")) {
-        window.location.href = "https://www.rentalcars.com/";
-      } else if (lowerQuery.includes("صرف") || lowerQuery.includes("عملة") || lowerQuery.includes("currency")) {
-        window.location.href = "https://www.xe.com/";
-      } else {
+
+      if (lowerQuery.includes("فندق") || lowerQuery.includes("hotel") || lowerQuery.includes("hôtel") || lowerQuery.includes("hotel")) {
         window.location.href = "https://12go.asia/?z=12574420";
+      } else if (lowerQuery.includes("طائرة") || lowerQuery.includes("flight") || lowerQuery.includes("avion") || lowerQuery.includes("vuelo")) {
+        window.location.href = "https://12go.asia/?z=12574420";
+      } else if (lowerQuery.includes("قطار") || lowerQuery.includes("train") || lowerQuery.includes("tren")) {
+        window.location.href = "https://12go.asia/?z=12574420";
+      } else if (lowerQuery.includes("سيارة") || lowerQuery.includes("car") || lowerQuery.includes("voiture") || lowerQuery.includes("coche")) {
+        window.location.href = "https://12go.asia/?z=12574420";
+      } else if (lowerQuery.includes("صرف") || lowerQuery.includes("عملة") || lowerQuery.includes("currency") || lowerQuery.includes("devise") || lowerQuery.includes("moneda")) {
+        window.location.href = "https://www.xe.com/";
       }
     }
 
-    function rotateTitleColors() {
-      const colors = ["#e91e63", "#4caf50", "#2196f3", "#ff9800"];
-      let i = 0;
-      setInterval(() => {
-        document.getElementById("mainTitle").style.color = colors[i % colors.length];
-        i++;
-      }, 3000); // كل 3 ثوانٍ
-    }
+    window.onload = redirectBasedOnQuery;
 
-    window.onload = function() {
-      rotateTitleColors();
-    };
-  </script>
-
-  <!-- ✅ تنسيق الصفحة -->
-  <style>
+    setInterval(() => {
+      const title = document.querySelector("h1");
+      const colors = ["#4285F4", "#EA4335", "#FBBC05", "#34A853"];
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      title.style.color = randomColor;
+    }, 3000);
+  </script>  <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to bottom, #000000, #1a1a1a);
+      font-family: 'Tahoma', sans-serif;
+      background-color: #000;
       color: #fff;
       text-align: center;
-      padding: 40px;
-      margin: 0;
-    }
-
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 20px;
-    }
-
-    .logo {
-      height: 40px;
+      padding: 50px;
     }
 
     h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-      transition: color 1s ease;
+      font-size: 2em;
+      margin-bottom: 20px;
+      transition: color 0.5s ease-in-out;
     }
 
-    p.languages {
-      font-size: 1em;
-      color: #ccc;
-      margin-bottom: 40px;
-    }
-
-    .search-container {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 40px;
-    }
-
-    .search-box {
-      position: relative;
-      width: 320px;
-    }
-
-    .search-box input {
-      width: 100%;
-      padding: 12px 50px 12px 12px;
-      border-radius: 10px;
-      border: none;
-      font-size: 16px;
-    }
-
-    .search-box button {
-      position: absolute;
-      right: 5px;
-      top: 5px;
-      bottom: 5px;
-      padding: 0 15px;
-      background: linear-gradient(to right, #ffd700, #ffcc00);
-      color: #000;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .buttons a {
+    .button {
       display: inline-block;
+      padding: 10px 20px;
       margin: 10px;
-      padding: 12px 24px;
-      background-color: #ff3d00;
-      color: white;
+      background-color: #f00;
+      color: #fff;
       text-decoration: none;
-      border-radius: 10px;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-
-    .buttons a:hover {
-      background-color: #ff5722;
+      border-radius: 8px;
     }
 
     .note {
-      margin-top: 30px;
-      font-size: 14px;
-      color: #aaa;
+      margin-top: 40px;
+      color: #ccc;
     }
-  </style>
-</head>
 
+    .search-box {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .search-box input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 300px;
+      border: none;
+      border-radius: 8px 0 0 8px;
+    }
+
+    .search-box button {
+      background-color: gold;
+      color: black;
+      border: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 0 8px 8px 0;
+      cursor: pointer;
+    }
+
+    .lang-links {
+      margin-top: 20px;
+    }
+
+    .lang-links a {
+      color: #00f;
+      margin: 0 10px;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .icon {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: linear-gradient(45deg, #4285F4, #EA4335, #FBBC05, #34A853);
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+    }
+  </style></head>
 <body>
-  <header>
-    <img class="logo" src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_light_color_92x30dp.png" alt="Logo">
-  </header>
+  <div class="icon"></div>
+  <h1>Fallaowme Travel Booking - حجز الطائرات والفنادق</h1>
+  <p>احجز رحلتك الآن بكل سهولة: طائرة، فندق، سيارة، قطار، وحتى صرف العملة</p>  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="اكتب ما تريد البحث عنه...">
+    <button onclick="searchRedirect()">بحث</button>
+  </div>  <script>
+    function searchRedirect() {
+      const query = document.getElementById("searchInput").value;
+      window.location.href = `?q=${encodeURIComponent(query)}`;
+    }
+  </script><a href="https://12go.asia/?z=12574420" class="button">حجز فندق</a> <a href="https://12go.asia/?z=12574420" class="button">حجز طائرة</a> <a href="https://12go.asia/?z=12574420" class="button">حجز قطار</a> <a href="https://12go.asia/?z=12574420" class="button">حجز سيارة</a> <a href="https://www.xe.com/" class="button">صرف العملة</a>
 
-  <h1 id="mainTitle">Fallaowme Booking</h1>
-  <p class="languages">
-    🌍 احجز رحلتك الآن | Book your trip now | Réservez votre voyage | Reserva tu viaje ahora
-  </p>
-
-  <div class="search-container">
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="ابحث عن فندق، طائرة، قطار، سيارة، عملة...">
-      <button onclick="redirectBasedOnQuery()">بحث</button>
-    </div>
+  <p class="note">أدخل كلمة مثل "فندق" أو "hotel" أو "voiture" أو "avion" ليتم تحويلك تلقائيًا.</p>  <div class="lang-links">
+    <a onclick="window.location.href='?q=hotel'">English</a>
+    <a onclick="window.location.href='?q=hôtel'">Français</a>
+    <a onclick="window.location.href='?q=hotel'">Español</a>
+    <a onclick="window.location.href='?q=فندق'">العربية</a>
   </div>
-
-  <div class="buttons">
-    <a href="https://www.booking.com/">حجز فندق</a>
-    <a href="https://www.skyscanner.net/">حجز طائرة</a>
-    <a href="https://www.raileurope.com/">حجز قطار</a>
-    <a href="https://www.rentalcars.com/">حجز سيارة</a>
-    <a href="https://www.xe.com/">صرف العملة</a>
-    <a href="https://12go.asia/?z=12574420">حجوزات شاملة</a>
-  </div>
-
-  <p class="note">✈️ اكتب كلمة مثل "فندق" أو "طائرة" أو "عملة" ثم اضغط "بحث" للانتقال تلقائيًا.</p>
 </body>
 </html>
